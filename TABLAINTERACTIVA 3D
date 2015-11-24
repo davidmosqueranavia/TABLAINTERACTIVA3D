@@ -1,0 +1,386 @@
+
+//Declaración de las Imágenes; a diferencia de la primera, se hace este medio que es más eficiente.
+PImage bta, ant, val, san, cal, atl, bol, ris, cun, mag, boy, cau, cor, nar, tol, nor, suc;
+PImage hui, qui, met, ama, ces, caq, cho, sana, cas, guaj, put, ara, guai, guav, vau, vic, colo;
+
+PFont calibri;
+
+//Variable que da cuando el scroll se mueve hacia arriba o hacia abajo
+float e=0;
+
+//Variable que aumenta el valor en Z de la cámara
+float zCam;
+PFont text;
+
+void setup() {
+  size(1350, 700, P3D);
+  text = loadFont("GillSansLight-Regular-24.vlw");
+
+  //Carga de Imáganes
+  colo=loadImage("colombia.png");
+  bta=loadImage("1bogota-05.png");
+  ant=loadImage("2antioquia-05.png");
+  val=loadImage("3valle-05.png");
+  san=loadImage("4santander-05.png");
+  cal=loadImage("5caldas-05.png");
+  atl=loadImage("6atlantico-05.png");
+  bol=loadImage("7bolivar-05.png");
+  ris=loadImage("8risaralda-05.png");
+  cun=loadImage("9cundinamarca-05.png");
+  mag=loadImage("10magdalena-05.png");
+  boy=loadImage("11boyaca-05.png");
+  cau=loadImage("12cauca-05.png");
+  cor=loadImage("13cordoba-05.png");
+  nar=loadImage("14nariño-05.png");
+  tol=loadImage("15tolima-05.png");
+  nor=loadImage("16nortesan-05.png");
+  suc=loadImage("17sucre-05.png");
+  hui=loadImage("18huila-05.png");
+  qui=loadImage("19quindio-05.png");
+  met=loadImage("20meta-05.png");
+  ama=loadImage("21amazonas-05.png");
+  ces=loadImage("22cesar-05.png");
+  caq=loadImage("23caqueta-05.png");
+  cho=loadImage("24choco-05.png");
+  sana=loadImage("25sandres-05.png");
+  cas=loadImage("26casanare-05.png");
+  guaj=loadImage("27guajira-05.png");
+  put=loadImage("28putumayo-05.png");
+  ara=loadImage("29arauca-05.png");
+  guai=loadImage("30guainia-05.png");
+  guav=loadImage("31guaviare-05.png");
+  vau=loadImage("32vaupes-05.png");
+  vic=loadImage("33vichada-05.png");
+
+  calibri = loadFont ("Calibri-BoldItalic-20.vlw");
+
+
+  //Posición inicial de la cámara en Z por default: 39000
+  zCam=39000;
+
+
+  smooth();
+}
+
+void draw() {
+  background(222, 223, 227);
+
+  //Determina el avance de la cámara en Z según el scroll
+  if (e==1) {
+    zCam+=80;
+  }
+  if (e==-1) {
+    zCam-=80;
+  }
+  e=0;
+
+  //Determina la posición de la cámara segun el scroll del mouse
+  camera(width/2, height/2, zCam, width/2, height/2, 0, 0, 1, 0);
+
+  //para posicionar las imágenes
+  println(zCam);
+  
+  
+  //MAPA COLOMBIA
+  translate(0, 0, 35300);  //Este ubica el mapa en 35300 en z
+  image(colo, -1000, -1600);  //Mueve un poco la imagen para centrarla
+  textFont(text);
+  noFill();
+  smooth();
+  strokeWeight(20);  // Beastly
+  stroke(56, 56, 56);
+  rect(-3390, -1730, 8140, 4160);
+  
+  //CIUDADES 
+  translate(0, 50, -1000);  //Baja la imagen 50 en 'y' y la corre 900 en z
+  image(bta, 170, 0);
+  fill(120, 120, 120);
+  textFont(calibri);
+  text("Wos Core Collection : 2086", -65, 200);
+  text("Wos Scielo CI : 1630", -10, 250);
+  text("Scopus : 4308", 40, 300);
+  text("1/33", 110, 350);
+  //noFill();
+  //stroke(120, 120, 120);
+  //rect(-100, -100, 1400, 750);
+
+  translate(650, 0, -900);  //Corre la imagen 600 en X y otros 900
+  image(ant, 200, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 996", 550, 200);
+  text("Wos Scielo CI : 442", 550, 250);
+  text("Scopus : 3448", 550, 300);
+  text("2/33", 550, 350);
+
+
+  translate(-600, 0, -900); //Devuelve los 600 en x
+  image(val, 0, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 559", -265, 200);
+  text("Wos Scielo CI : 308", -210, 250);
+  text("Scopus : 1391", -165, 300);
+  text("3/33", -100, 350);
+  //noFill();
+  //stroke(120, 120, 120);
+  //rect(-300, -100, 1400, 750);
+
+  translate(650, 0, -900);
+  image(san, 180, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 224", 550, 200);
+  text("Wos Scielo CI : 133", 550, 250);
+  text("Scopus : 757", 550, 300);
+  text("4/33", 550, 350);
+
+
+  translate(-600, 0, -900);
+  image(cal, 0, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 157", -270, 250);
+  text("Wos Scielo CI : 126", -213, 300);
+  text("Scopus : 378", -162, 350);
+  text("5/33", -100, 400);
+  //noFill();
+  //stroke(120, 120, 120);
+  //rect(-100, -100, 1400, 750);
+
+  translate(650, 0, -900);
+  image(atl, 180, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 126", 500, 200);
+  text("Wos Scielo CI : 88", 500, 250);
+  text("Scopus : 102", 500, 300);
+  text("6/33", 500, 350);
+  //noFill();
+  //stroke(120, 120, 120);
+  //rect(-100, -100, 1400, 750);
+
+  translate(-600, 0, -900);
+  image(bol, 0, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 119", -270, 250);
+  text("Wos Scielo CI : 38", -213, 300);
+  text("Scopus : 237", -162, 350);
+  text("7/33", -100, 400);
+
+
+  translate(650, 0, -900);
+  image(ris, 200, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 67", 510, 200);
+  text("Wos Scielo CI : 69", 510, 250);
+  text("Scopus : 166", 510, 300);
+  text("8/33", 510, 350);
+
+
+  translate(-600, 0, -900);
+  image(cun, 0, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 44", -270, 250);
+  text("Wos Scielo CI : 105", -213, 300);
+  text("Scopus : 95", -162, 350);
+  text("9/33", -100, 400);
+
+  translate(650, 0, -900);
+  image(mag, 180, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 60", 510, 200);
+  text("Wos Scielo CI : 42", 510, 250);
+  text("Scopus : 58", 510, 300);
+  text("10/33", 510, 350);
+
+  translate(-600, 0, -900);
+  image(boy, 0, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 44", -265, 250);
+  text("Wos Scielo CI : 105", -213, 300);
+  text("Scopus : 95", -157, 350);
+  text("11/33", -108, 400);
+
+  translate(600, 0, -900);
+  image(cau, 180, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 40", 550, 200);
+  text("Wos Scielo CI : 49", 550, 250);
+  text("Scopus : 41", 550, 300);
+  text("12/33", 550, 350);
+
+  translate(-600, 0, -900);
+  image(cor, 0, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 52", -265, 250);
+  text("Wos Scielo CI : 23", -213, 300);
+  text("Scopus : 57", -157, 350);
+  text("13/33", -108, 400);
+
+  translate(600, 0, -900);
+  image(nar, 180, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 33", 550, 200);
+  text("Wos Scielo CI : 42", 550, 250);
+  text("Scopus : 35", 550, 300);
+  text("14/33", 550, 350);
+
+  translate(-600, 0, -900);
+  image(tol, 0, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 33", -265, 250);
+  text("Wos Scielo CI : 42", -213, 300);
+  text("Scopus : 28", -157, 350);
+  text("15/33", -108, 400);
+
+  translate(600, 0, -900);
+  image(nor, 180, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 28", 550, 200);
+  text("Wos Scielo CI : 22", 550, 250);
+  text("Scopus : 32", 550, 300);
+  text("16/33", 550, 350);
+
+  translate(-600, 0, -900);
+  image(suc, 0, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 17", -265, 250);
+  text("Wos Scielo CI : 22", -213, 300);
+  text("Scopus : 18", -157, 350);
+  text("17/33", -108, 400);
+
+  translate(600, 0, -900);
+  image(hui, 180, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 17", 550, 200);
+  text("Wos Scielo CI : 18", 550, 250);
+  text("Scopus : 14", 550, 300);
+  text("18/33", 550, 350);
+
+  translate(-600, 0, -900);
+  image(qui, 0, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 21", -265, 250);
+  text("Wos Scielo CI : 18", -213, 300);
+  text("Scopus : 16", -157, 350);
+  text("19/33", -108, 400);
+
+
+  translate(600, 0, -900);
+  image(met, 180, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 19", 550, 200);
+  text("Wos Scielo CI : 21", 550, 250);
+  text("Scopus : 15", 550, 300);
+  text("20/33", 550, 350);
+
+  translate(-700, 0, -900);
+  image(ama, 0, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 10", -265, 250);
+  text("Wos Scielo CI : 2", -213, 300);
+  text("Scopus : 9", -157, 350);
+  text("21/33", -108, 400);
+
+  translate(600, 0, -900);
+  image(ces, 180, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 5", 550, 200);
+  text("Wos Scielo CI : 8", 550, 250);
+  text("Scopus : 5", 550, 300);
+  text("22/33", 550, 350);
+
+  translate(-700, 0, -900);
+  image(caq, 0, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 8", -265, 250);
+  text("Wos Scielo CI : 5", -213, 300);
+  text("Scopus : 4", -157, 350);
+  text("23/33", -108, 400);
+
+  translate(600, 0, -900);
+  image(cho, 180, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 2", 550, 200);
+  text("Wos Scielo CI : 5", 550, 250);
+  text("Scopus : 4", 550, 300);
+  text("24/33", 550, 350);
+
+  translate(-600, 0, -900);
+  image(sana, 0, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 4", -265, 250);
+  text("Wos Scielo CI : 1", -213, 300);
+  text("Scopus : 4", -157, 350);
+  text("25/33", -108, 400);
+
+  translate(600, 0, -900);
+  image(cas, 180, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 2", 550, 200);
+  text("Wos Scielo CI : 1", 550, 250);
+  text("Scopus : 4", 550, 300);
+  text("26/33", 550, 350);
+
+  translate(-600, 0, -900);
+  image(guaj, 0, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 3", -265, 250);
+  text("Wos Scielo CI : 1", -213, 300);
+  text("Scopus : 2", -157, 350);
+  text("27/33", -108, 400);
+
+  translate(600, 0, -900);
+  image(put, 180, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 2", 550, 200);
+  text("Wos Scielo CI : 3", 550, 250);
+  text("Scopus : 1", 550, 300);
+  text("128/33", 550, 350);
+
+  translate(-600, 0, -900);
+  image(ara, 0, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 0", -265, 250);
+  text("Wos Scielo CI : 0", -213, 300);
+  text("Scopus : 0", -157, 350);
+  text("29/33", -108, 400);
+
+  translate(600, 0, -900);
+  image(guai, 180, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 0", 550, 200);
+  text("Wos Scielo CI : 0", 550, 250);
+  text("Scopus : 0", 550, 300);
+  text("30/33", 550, 350);
+
+  translate(-600, 0, -900);
+  image(guav, 0, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 0", -265, 250);
+  text("Wos Scielo CI : 0", -213, 300);
+  text("Scopus : 0", -157, 350);
+  text("31/33", -108, 400);
+
+  translate(600, 0, -900);
+  image(vau, 180, 0);
+  text("Wos Core Collection : 0", 550, 200);
+  text("Wos Scielo CI : 0", 550, 250);
+  text("Scopus : 0", 550, 300);
+  text("32/33", 550, 350);
+
+  translate(-600, 0, -900);
+  image(vic, 0, 0);
+  textFont(calibri);
+  text("Wos Core Collection : 0", -265, 250);
+  text("Wos Scielo CI : 0", -213, 300);
+  text("Scopus : 0", -157, 350);
+  text("33/33", -108, 400);
+
+  translate(300, 0, -5300);
+  image(colo, -1550, -1520);
+  noFill();
+  stroke(50,50,50);
+  rect(-3950, -1770, 8140, 4160);
+}
+
+//Función que arroja -1 o 1 según la dirección en la que ruede el scroll del mouse
+void mouseWheel(MouseEvent event) {
+  e = event.getCount();
+}
